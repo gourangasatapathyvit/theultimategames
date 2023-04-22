@@ -1,29 +1,9 @@
-import { useEffect, useState } from "react";
-import fetchGamesData from "../../services/FetchGamesData";
+import useGames from "../../hooks/UseGames";
 import { Text } from "@chakra-ui/react";
 import "./GameCard.css";
 
-interface Game {
-  id: number;
-  name: string;
-  background_image: string;
-}
-
-interface GameModel {
-  count: number;
-  results: Game[];
-}
-
 const GameCard = () => {
-  const [games, setGames] = useState<Game[]>();
-  const [error, setError] = useState("");
-
-  useEffect(() => {
-    fetchGamesData
-      .get<GameModel>("/games")
-      .then((res) => setGames(res.data.results))
-      .catch((err) => setError(err.message));
-  }, []);
+  const { games, error } = useGames();
 
   return (
     <>
