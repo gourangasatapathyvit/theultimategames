@@ -1,18 +1,19 @@
-import useGames from "../../hooks/UseGames";
-import { Text } from "@chakra-ui/react";
-import "./GameCard.css";
+import { Card, CardBody, Heading, Image } from "@chakra-ui/react";
+import { Game } from "../../hooks/UseGames";
 
-const GameCard = () => {
-  const { games, error } = useGames();
+interface Props {
+  game: Game;
+}
 
+const GameCard = ({ game }: Props) => {
   return (
     <>
-      {error && <Text>{error}</Text>}
-      <ul className="ulx">
-        {games?.map((eachGame) => (
-          <li key={eachGame.id}>{eachGame.name}</li>
-        ))}
-      </ul>
+      <Card borderRadius={10} overflow={"hidden"}>
+        <Image src={game.background_image}></Image>
+        <CardBody>
+          <Heading fontSize={"2xl"}>{game.name}</Heading>
+        </CardBody>
+      </Card>
     </>
   );
 };

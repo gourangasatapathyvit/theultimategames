@@ -1,7 +1,7 @@
 import { Grid, GridItem, Show } from "@chakra-ui/react";
 import "./App.css";
 import NavBar from "./components/NavBar";
-import GameCard from "./components/GameCard/GameCard";
+import GameGrid from "./components/GameGrid/GameGrid";
 
 function App() {
   return (
@@ -19,25 +19,25 @@ function App() {
         fontWeight="bold"
       >
         <Show above="lg">
-          <GridItem pl="2" bg="pink.300" area={"aside"}>
+          <GridItem bg="pink.300" area={"aside"}>
             aside
           </GridItem>
 
-          {/* <GridItem pl="2" bg="orange.300" area={"header"}>
+          {/* <GridItem bg="orange.300" area={"header"}>
             Header
           </GridItem> */}
         </Show>
 
         <Show below="lg"></Show>
 
-        <GridItem pl="2" bg="blue.300" area={"nav"}>
+        <GridItem bg="blue.300" area={"nav"}>
           <NavBar></NavBar>
         </GridItem>
-        <GridItem pl="2" bg="green.300" area={"main"}>
-          <GameCard />
+        <GridItem bg="green.300" area={"main"}>
+          <GameGrid />
         </GridItem>
 
-        <GridItem pl="2" bg="blue.300" area={"footer"}>
+        <GridItem bg="blue.300" area={"footer"}>
           Footer
         </GridItem>
       </Grid>

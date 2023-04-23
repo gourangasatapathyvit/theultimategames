@@ -2,13 +2,13 @@ import { useEffect, useState } from "react";
 import fetchGamesData from "../services/FetchGamesData";
 import { CanceledError } from "axios";
 
-interface Game {
+export interface Game {
   id: number;
   name: string;
   background_image: string;
 }
 
-interface GameModel {
+export interface GameModel {
   count: number;
   results: Game[];
 }
