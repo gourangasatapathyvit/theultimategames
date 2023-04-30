@@ -4,7 +4,7 @@ import "./GameGrid.css";
 import GameCard from "../GameCard/GameCard";
 
 const GameGrid = () => {
-  const { games, error, isLoading } = useGames();
+  const { data, error, isLoading } = useGames();
 
   return (
     <>
@@ -30,7 +30,7 @@ const GameGrid = () => {
         spacing={10}
         p={2}
       >
-        {games?.map((eachGame) => (
+        {data?.map((eachGame) => (
           // <li key={eachGame.id}>{eachGame.name}</li>
           <GameCard key={eachGame.id} game={eachGame} />
         ))}
