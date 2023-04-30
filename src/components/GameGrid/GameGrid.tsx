@@ -1,13 +1,23 @@
 import useGames from "../../hooks/UseGames";
-import { SimpleGrid, Text } from "@chakra-ui/react";
+import { SimpleGrid, Spinner, Text } from "@chakra-ui/react";
 import "./GameGrid.css";
 import GameCard from "../GameCard/GameCard";
 
 const GameGrid = () => {
-  const { games, error } = useGames();
+  const { games, error, isLoading } = useGames();
 
   return (
     <>
+      {isLoading && (
+        <Spinner
+          thickness="4px"
+          speed="1s"
+          emptyColor="gray.200"
+          color="black.500"
+          size="xl"
+        />
+      )}
+
       {error && <Text>{error}</Text>}
 
       <SimpleGrid
