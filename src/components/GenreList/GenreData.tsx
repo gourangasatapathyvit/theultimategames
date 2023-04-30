@@ -12,9 +12,10 @@ import {
 
 interface Props {
   getGenre: (genre: Genres) => void;
+  selectedGenre: Genres | null;
 }
 
-const GenreData = ({ getGenre }: Props) => {
+const GenreData = ({ getGenre, selectedGenre }: Props) => {
   //   const { genres, error, isLoading } = UseGenres();
   const { data, error, isLoading } = useGenre();
 
@@ -41,6 +42,7 @@ const GenreData = ({ getGenre }: Props) => {
                 src={item.image_background}
               />
               <Button
+                fontWeight={item.id === selectedGenre?.id ? "bold" : "normal"}
                 whiteSpace="nowrap"
                 overflow="hidden"
                 textOverflow="ellipsis"

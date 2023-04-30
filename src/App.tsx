@@ -29,7 +29,10 @@ function App() {
       >
         <Show above="lg">
           <GridItem bg="pink.300" area={"aside"} paddingX={"2"}>
-            <GenreData getGenre={(genre) => setGenre(genre)} />
+            <GenreData
+              getGenre={(genre) => setGenre(genre)}
+              selectedGenre={genre}
+            />
           </GridItem>
 
           {/* <GridItem bg="orange.300" area={"header"}>
