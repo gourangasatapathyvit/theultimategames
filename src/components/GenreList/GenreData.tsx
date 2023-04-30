@@ -41,6 +41,10 @@ const GenreData = ({ getGenre }: Props) => {
                 src={item.image_background}
               />
               <Button
+                whiteSpace="nowrap"
+                overflow="hidden"
+                textOverflow="ellipsis"
+                title={item.name}
                 variant={"link"}
                 onClick={() => {
                   console.log(item);
