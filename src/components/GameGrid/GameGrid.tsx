@@ -27,11 +27,10 @@ const GameGrid = () => {
           lg: 3,
           xl: 5,
         }}
-        spacing={10}
+        spacing={4}
         p={2}
       >
         {data?.map((eachGame) => (
-          // <li key={eachGame.id}>{eachGame.name}</li>
           <GameCard key={eachGame.id} game={eachGame} />
         ))}
       </SimpleGrid>

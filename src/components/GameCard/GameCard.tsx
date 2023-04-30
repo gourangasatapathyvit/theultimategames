@@ -10,8 +10,8 @@ interface Props {
 const GameCard = ({ game }: Props) => {
   return (
     <>
-      <Card borderRadius={10} overflow={"hidden"}>
-        <Image src={game.background_image}></Image>
+      <Card width={"100%"} borderRadius={10} overflow={"hidden"}>
+        <Image height="60%" src={game.background_image}></Image>
         <CardBody>
           <Heading fontSize={"2xl"}>{game.name}</Heading>
           <HStack justifyContent={"space-between"}>

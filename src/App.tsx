@@ -12,6 +12,10 @@ function App() {
           base: `"nav" "main" "footer"`,
           lg: `"nav nav" "aside main" "footer footer"`,
         }}
+        templateColumns={{
+          base: "1fr",
+          lg: "200px 1fr",
+        }}
         // gridTemplateRows={"50px 1fr 30px"}
         // gridTemplateColumns={"150px 1fr"}
         // h="200px"
@@ -20,7 +24,7 @@ function App() {
         fontWeight="bold"
       >
         <Show above="lg">
-          <GridItem bg="pink.300" area={"aside"}>
+          <GridItem bg="pink.300" area={"aside"} paddingX={"2"}>
             <GenreData />
           </GridItem>
 
