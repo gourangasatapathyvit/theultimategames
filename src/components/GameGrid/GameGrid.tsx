@@ -2,12 +2,18 @@ import useGames from "../../hooks/UseGames";
 import { SimpleGrid, Spinner, Text } from "@chakra-ui/react";
 import "./GameGrid.css";
 import GameCard from "../GameCard/GameCard";
+import { Genres } from "../../hooks/UseGenres";
 
-const GameGrid = () => {
-  const { data, error, isLoading } = useGames();
+interface Props {
+  fetchGenre: Genres | null;
+}
+
+const GameGrid = ({ fetchGenre }: Props) => {
+  const { data, error, isLoading } = useGames(fetchGenre);
 
   return (
     <>
+      {fetchGenre && <Text>{fetchGenre.name}</Text>}
       {isLoading && (
         <Spinner
           thickness="4px"

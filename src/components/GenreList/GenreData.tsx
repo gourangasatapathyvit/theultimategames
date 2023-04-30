@@ -1,10 +1,23 @@
-import useGenre from "../../hooks/UseGenres";
+import useGenre, { Genres } from "../../hooks/UseGenres";
 
-import { HStack, Image, List, ListItem, Spinner, Text } from "@chakra-ui/react";
+import {
+  Button,
+  HStack,
+  Image,
+  List,
+  ListItem,
+  Spinner,
+  Text,
+} from "@chakra-ui/react";
 
-const GenreData = () => {
+interface Props {
+  getGenre: (genre: Genres) => void;
+}
+
+const GenreData = ({ getGenre }: Props) => {
   //   const { genres, error, isLoading } = UseGenres();
   const { data, error, isLoading } = useGenre();
+
   return (
     <>
       {isLoading && (
@@ -20,18 +33,25 @@ const GenreData = () => {
       {error && <Text>{error}</Text>}
       <List>
         {data?.map((item) => (
-          <>
-            <ListItem key={item.id} paddingY={"2"}>
-              <HStack>
-                <Image
-                  boxSize={"20"}
-                  borderRadius={8}
-                  src={item.image_background}
-                />
-                <Text fontSize={"lg"}>{item.name}</Text>
-              </HStack>
-            </ListItem>
-          </>
+          <ListItem key={item.id} paddingY={"2"}>
+            <HStack>
+              <Image
+                boxSize={"20"}
+                borderRadius={8}
+                src={item.image_background}
+              />
+              <Button
+                variant={"link"}
+                onClick={() => {
+                  console.log(item);
+                  getGenre(item);
+                }}
+                fontSize={"lg"}
+              >
+                {item.name}
+              </Button>
+            </HStack>
+          </ListItem>
         ))}
       </List>
     </>
